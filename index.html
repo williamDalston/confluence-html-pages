@@ -337,27 +337,11 @@
                     html += `
                         <div class="page-item">
                             <h3>${title}</h3>
-                            <p><span class="file-badge">${filename}</span></p>
-                            <p style="margin-top: 10px;">${description}</p>
+                            <p style="margin-top: 10px; color: #666;">${description}</p>
                             
-                            <div class="link-group">
-                                <div class="link-item">
-                                    <span class="link-label">📋 View Page:</span>
-                                    <a href="${previewUrl}" target="_blank" class="btn">Preview Page</a>
-                                </div>
-                                
-                                <div class="link-item">
-                                    <span class="link-label">🔗 Raw URL:</span>
-                                    <div style="flex: 1;">
-                                        <code class="link-url" onclick="copyToClipboard('${rawUrl}', this)" style="cursor: pointer; user-select: all;">${rawUrl}</code>
-                                        <button class="btn btn-secondary" onclick="copyToClipboard('${rawUrl}', this)" style="margin-left: 10px;">Copy URL</button>
-                                    </div>
-                                </div>
-                                
-                                <div class="link-item">
-                                    <span class="link-label">📄 GitHub File:</span>
-                                    <a href="${githubUrl}" target="_blank" class="btn">View on GitHub</a>
-                                </div>
+                            <div style="margin-top: 15px;">
+                                <a href="${previewUrl}" target="_blank" class="btn">View Page →</a>
+                                <button class="btn btn-secondary" onclick="copyToClipboard('${rawUrl}', this)" style="margin-left: 10px;">Copy Raw URL</button>
                             </div>
                         </div>
                     `;
