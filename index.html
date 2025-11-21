@@ -8,53 +8,180 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
             background-color: #f5f5f5;
         }
         .page-list {
             background: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         h1 {
             color: #333;
-            border-bottom: 2px solid #0052CC;
-            padding-bottom: 10px;
+            border-bottom: 3px solid #0052CC;
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+        .intro {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #0052CC;
         }
         .page-item {
-            padding: 15px;
-            margin: 10px 0;
+            padding: 20px;
+            margin: 20px 0;
             background: #f8f9fa;
             border-left: 4px solid #0052CC;
-            border-radius: 3px;
+            border-radius: 5px;
+            transition: box-shadow 0.2s;
+        }
+        .page-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
         .page-item h3 {
             margin-top: 0;
             color: #0052CC;
+            font-size: 1.3em;
         }
         .page-item p {
             color: #666;
-            margin: 5px 0;
+            margin: 8px 0;
+        }
+        .link-group {
+            margin: 15px 0;
+            padding: 12px;
+            background: white;
+            border-radius: 4px;
+        }
+        .link-item {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .link-label {
+            font-weight: bold;
+            color: #555;
+            min-width: 120px;
+        }
+        .link-url {
+            flex: 1;
+            padding: 8px 12px;
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #0052CC;
+            word-break: break-all;
+            cursor: pointer;
+        }
+        .link-url:hover {
+            background: #e8e8e8;
+        }
+        .btn {
+            padding: 8px 16px;
+            background: #0052CC;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 5px 5px 5px 0;
+            font-size: 0.9em;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #0065FF;
+        }
+        .btn-secondary {
+            background: #6c757d;
+        }
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        .note {
+            margin-top: 30px;
+            padding: 15px;
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+            color: #856404;
+        }
+        .file-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            background: #0052CC;
+            color: white;
+            border-radius: 3px;
+            font-size: 0.85em;
+            font-family: 'Courier New', monospace;
         }
     </style>
+    <script>
+        function copyToClipboard(text, button) {
+            navigator.clipboard.writeText(text).then(function() {
+                const originalText = button.textContent;
+                button.textContent = '✓ Copied!';
+                button.style.background = '#28a745';
+                setTimeout(function() {
+                    button.textContent = originalText;
+                    button.style.background = '#0052CC';
+                }, 2000);
+            });
+        }
+        
+        function copyFileContent(fileName) {
+            // This would need to be implemented with fetch to get the file content
+            // For now, we'll just show an alert
+            alert('To copy the file content:\n1. Click the "View Raw" link\n2. Copy all the content from the page\n3. Paste into Confluence HTML widget');
+        }
+    </script>
 </head>
 <body>
     <div class="page-list">
-        <h1>Confluence HTML Pages for Power BI Workspace</h1>
-        <p>This repository contains HTML content widgets for embedding into Confluence pages.</p>
+        <h1>📄 Confluence HTML Pages for Power BI Workspace</h1>
+        
+        <div class="intro">
+            <p><strong>Welcome!</strong> This repository contains HTML content widgets for embedding into Confluence pages.</p>
+            <p style="margin: 5px 0 0 0;"><strong>Quick Start:</strong> Click on any page below to view it, or copy the raw GitHub URL to access the HTML content.</p>
+        </div>
         
         <div class="page-item">
             <h3>Page 1: Purpose of This Power BI Workspace</h3>
-            <p>File: <code>page1-purpose.html</code></p>
-            <p>Central knowledge hub overview and purpose statement for HHS Analytics Power BI workspace.</p>
+            <p><span class="file-badge">page1-purpose.html</span></p>
+            <p style="margin-top: 10px;">Central knowledge hub overview and purpose statement for HHS Analytics Power BI workspace.</p>
+            
+            <div class="link-group">
+                <div class="link-item">
+                    <span class="link-label">📋 View Page:</span>
+                    <a href="page1-purpose.html" target="_blank" class="btn">Preview Page</a>
+                </div>
+                
+                <div class="link-item">
+                    <span class="link-label">🔗 Raw URL:</span>
+                    <span class="link-url" id="raw-url-1" onclick="copyToClipboard(this.textContent, this)">https://raw.githubusercontent.com/williamDalston/confluence-html-pages/main/page1-purpose.html</span>
+                    <button class="btn btn-secondary" onclick="copyToClipboard('https://raw.githubusercontent.com/williamDalston/confluence-html-pages/main/page1-purpose.html', this)">Copy URL</button>
+                </div>
+                
+                <div class="link-item">
+                    <span class="link-label">📄 GitHub File:</span>
+                    <a href="https://github.com/williamDalston/confluence-html-pages/blob/main/page1-purpose.html" target="_blank" class="btn">View on GitHub</a>
+                </div>
+            </div>
         </div>
         
-        <p style="margin-top: 30px; color: #888; font-size: 0.9em;">
-            <em>Note: Copy the content from each HTML file and paste it into Confluence's HTML widget.</em>
-        </p>
+        <div class="note">
+            <strong>💡 How to Use:</strong><br>
+            1. Click "Preview Page" to see how the content will look<br>
+            2. Click "Copy URL" to copy the raw GitHub URL<br>
+            3. In Confluence, insert an HTML widget and paste the raw URL content, OR copy the div content directly from the preview page<br>
+            4. Save your Confluence page
+        </div>
     </div>
 </body>
 </html>
