@@ -341,7 +341,12 @@
                             
                             <div style="margin-top: 15px;">
                                 <a href="${previewUrl}" target="_blank" class="btn">View Page →</a>
-                                <button class="btn btn-secondary" onclick="copyToClipboard('${rawUrl}', this)" style="margin-left: 10px;">Copy Raw URL</button>
+                            </div>
+                            
+                            <div style="margin-top: 12px; padding: 10px; background: #f8f9fa; border-radius: 4px; border: 1px solid #e0e0e0;">
+                                <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">Raw URL (for Confluence HTML macro):</div>
+                                <code class="link-url" onclick="copyToClipboard('${rawUrl}', this)" style="cursor: pointer; user-select: all; display: block; padding: 8px; background: white; border: 1px solid #ddd; border-radius: 3px; font-size: 0.9em; word-break: break-all;">${rawUrl}</code>
+                                <button class="btn btn-secondary" onclick="copyToClipboard('${rawUrl}', this)" style="margin-top: 8px; font-size: 0.85em;">Copy Raw URL</button>
                             </div>
                         </div>
                     `;
