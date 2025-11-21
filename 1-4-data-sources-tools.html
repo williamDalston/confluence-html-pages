@@ -1,0 +1,108 @@
+<div style="font-family: Arial, sans-serif; line-height: 1.5; max-width: 800px;">
+
+  <h2>Data Sources & Tools Landscape</h2>
+
+  <p>
+    This page provides an overview of all data sources and analytical tools used across the ASPA HHS Analytics workspace. 
+    Understanding this landscape is critical for building unified Power BI dashboards that integrate data from multiple sources.
+  </p>
+
+  <h3>Primary Data Sources</h3>
+
+  <h4>Website Analytics</h4>
+  <ul>
+    <li><strong>Google Analytics 4 (GA4):</strong> Website traffic, user behavior, engagement metrics, conversion tracking</li>
+    <li><strong>Pipeline:</strong> GA4 → BigQuery → Looker (managed by Sogol)</li>
+    <li><strong>Power BI Integration:</strong> Connect directly to GA4 API or BigQuery for unified dashboards</li>
+    <li><strong>Note:</strong> Coordinate with Sogol to ensure Power BI and Looker complement each other</li>
+  </ul>
+
+  <h4>Website Crawl Data</h4>
+  <ul>
+    <li><strong>Screaming Frog:</strong> Website crawl data, metadata, SEO metrics, technical audits</li>
+    <li><strong>Data Extracted:</strong> Page metadata, readability scores, canonical URLs, link structure, indexability, GA4 metrics via API</li>
+    <li><strong>Owner:</strong> Stephanie (5+ years experience)</li>
+    <li><strong>Critical:</strong> Crawls take weeks and consume GA tokens – must be strategically scheduled</li>
+    <li><strong>Upcoming:</strong> Unified crawl with inputs from entire team</li>
+  </ul>
+
+  <h4>Social Media Analytics</h4>
+  <ul>
+    <li><strong>Sprinklr:</strong> Social media analytics, engagement metrics, follower tracking across Instagram, LinkedIn, Facebook, YouTube</li>
+    <li><strong>Owner:</strong> Caroline (fully certified in Sprinklr)</li>
+    <li><strong>Current Workflow:</strong> Manual rows.com workflow (targeting automation)</li>
+    <li><strong>Power BI Goal:</strong> Integrate Sprinklr API → Power BI dashboards</li>
+  </ul>
+
+  <h4>Service Desk & Project Management</h4>
+  <ul>
+    <li><strong>Jira:</strong> Ticket tracking, SLA compliance, throughput metrics, team workflows</li>
+    <li><strong>Owner:</strong> Nathan (Service Desk & UXD Product Manager)</li>
+    <li><strong>Metrics Needed:</strong> Ticket throughput, SLAs, plain language/readability metrics, UX outcomes</li>
+    <li><strong>Note:</strong> Jira → Power BI integration is acceptable as template exercise (per Sogol)</li>
+  </ul>
+
+  <h4>Content & Metadata</h4>
+  <ul>
+    <li><strong>Drupal:</strong> Content management system data, metadata, page attributes</li>
+    <li><strong>SiteImprove:</strong> Website quality, accessibility metrics, compliance tracking</li>
+    <li><strong>Audience Data:</strong> Personas and taxonomy from Adrian (Qualtrics data)</li>
+  </ul>
+
+  <h3>Analytical Tools & Platforms</h3>
+
+  <h4>Business Intelligence</h4>
+  <ul>
+    <li><strong>Power BI:</strong> Primary BI tool for unified analytics dashboards, reports, and star schema models (Will)</li>
+    <li><strong>Looker:</strong> Google Analytics dashboards and BigQuery pipelines (Sogol)</li>
+    <li><strong>Coordination:</strong> Power BI and Looker should complement each other without duplication</li>
+  </ul>
+
+  <h4>Data Engineering</h4>
+  <ul>
+    <li><strong>BigQuery:</strong> Data warehouse for GA4 data (Sogol)</li>
+    <li><strong>Python:</strong> Data pipeline development and automation (Sogol)</li>
+  </ul>
+
+  <h4>Website Analysis</h4>
+  <ul>
+    <li><strong>Screaming Frog SEO Spider:</strong> Website crawling, technical SEO, custom extraction</li>
+    <li><strong>SiteImprove:</strong> Website quality, accessibility, and compliance monitoring</li>
+  </ul>
+
+  <h4>Collaboration & Analysis</h4>
+  <ul>
+    <li><strong>Rows.com:</strong> Currently used for manual social follower tracking (Caroline) – targeting automation</li>
+    <li><strong>Microsoft Excel:</strong> Ad-hoc analysis and data manipulation</li>
+  </ul>
+
+  <h3>Integration Strategy</h3>
+
+  <p>
+    The goal is to build a unified analytics system that brings together data from all these sources into 
+    Power BI for executive-level KPI dashboards. Key integration points:
+  </p>
+
+  <ul>
+    <li><strong>GA4:</strong> Direct API connection or BigQuery integration</li>
+    <li><strong>Jira:</strong> REST API with authentication (template exercise)</li>
+    <li><strong>Sprinklr:</strong> API integration to replace manual rows.com workflow</li>
+    <li><strong>Screaming Frog:</strong> Export crawl results and integrate into Power BI models</li>
+    <li><strong>Drupal:</strong> Content metadata via API or exports</li>
+  </ul>
+
+  <h3>Connection Guides</h3>
+
+  <p>
+    For detailed instructions on connecting to each data source, see the relevant sections:
+  </p>
+
+  <ul>
+    <li><strong>Jira → Power BI:</strong> See Connection Guides in Section 2-7</li>
+    <li><strong>GA4 → Power BI:</strong> See Connection Guides in Section 2-7</li>
+    <li><strong>Sprinklr → Power BI:</strong> API documentation and integration guides (work with Caroline)</li>
+    <li><strong>Screaming Frog:</strong> See Section 3 – Web Analytics – Screaming Frog (work with Stephanie)</li>
+    <li><strong>Star Schema Models:</strong> See Section 2 – Templates & Data Models</li>
+  </ul>
+
+</div>

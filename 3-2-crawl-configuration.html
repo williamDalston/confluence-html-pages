@@ -1,0 +1,60 @@
+<div style="font-family: Arial, sans-serif; line-height: 1.5; max-width: 800px;">
+
+  <h2>Crawl Configuration Settings</h2>
+
+  <p>
+    This page documents the recommended crawl configuration settings for Screaming Frog 
+    crawls used in HHS Analytics. Proper configuration ensures accurate and complete data collection.
+  </p>
+
+  <h3>Basic Configuration</h3>
+
+  <h4>Mode Settings</h4>
+  <ul>
+    <li><strong>Crawl Mode:</strong> Spider (for HTML crawling) or List (for specific URL lists)</li>
+    <li><strong>Protocol:</strong> HTTP/HTTPS - match your site protocol</li>
+    <li><strong>Store HTML:</strong> Enable for content analysis</li>
+  </ul>
+
+  <h4>Crawl Limits</h4>
+  <ul>
+    <li><strong>Max URLs:</strong> Set appropriate limit based on site size</li>
+    <li><strong>Max Depth:</strong> Control crawl depth to focus on important pages</li>
+    <li><strong>Max File Size:</strong> Limit large file downloads to save time</li>
+  </ul>
+
+  <h3>Advanced Settings</h3>
+
+  <h4>Respect & Follow</h4>
+  <ul>
+    <li><strong>robots.txt:</strong> Respect robots directives</li>
+    <li><strong>Canonical Tags:</strong> Follow canonical URLs</li>
+    <li><strong>Noindex:</strong> Choose whether to crawl noindex pages</li>
+  </ul>
+
+  <h4>Authentication</h4>
+  <ul>
+    <li><strong>Basic Auth:</strong> Configure if site requires authentication</li>
+    <li><strong>VPN Requirements:</strong> Ensure VPN is connected if required (see Section 9)</li>
+  </ul>
+
+  <h3>Custom Extraction Settings</h3>
+
+  <p>
+    Configure custom extraction rules based on your analysis needs:
+  </p>
+  <ul>
+    <li>XPath selectors for specific elements</li>
+    <li>CSS selectors for content extraction</li>
+    <li>Regex patterns for pattern matching</li>
+  </ul>
+
+  <h3>Recommended Configurations by Use Case</h3>
+
+  <ul>
+    <li><strong>Full Site Audit:</strong> Comprehensive crawl with all resources</li>
+    <li><strong>Quick Health Check:</strong> Fast crawl focusing on critical issues</li>
+    <li><strong>Content Extraction:</strong> Configured for specific data extraction</li>
+  </ul>
+
+</div>

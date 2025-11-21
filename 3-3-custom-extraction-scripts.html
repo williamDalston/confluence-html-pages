@@ -1,0 +1,69 @@
+<div style="font-family: Arial, sans-serif; line-height: 1.5; max-width: 800px;">
+
+  <h2>Custom Extraction Scripts</h2>
+
+  <p>
+    This page contains custom extraction scripts and XPath examples for extracting specific 
+    data from website crawls using Screaming Frog.
+  </p>
+
+  <h3>Extraction Methods</h3>
+
+  <ul>
+    <li><strong>XPath:</strong> For navigating XML/HTML structure and extracting elements</li>
+    <li><strong>CSS Selectors:</strong> For selecting elements using CSS syntax</li>
+    <li><strong>Regex:</strong> For pattern matching in text content</li>
+  </ul>
+
+  <h3>Common Extraction Patterns</h3>
+
+  <h4>Metadata Extraction</h4>
+  <ul>
+    <li>Page title, meta description, meta keywords</li>
+    <li>Open Graph tags and Twitter Card metadata</li>
+    <li>Schema.org structured data</li>
+  </ul>
+
+  <h4>Content Extraction</h4>
+  <ul>
+    <li>H1, H2, H3 headings hierarchy</li>
+    <li>Body content and text length</li>
+    <li>Image alt text and captions</li>
+  </ul>
+
+  <h4>Custom Data Points</h4>
+  <ul>
+    <li>Publication dates and author information</li>
+    <li>Category tags and taxonomy</li>
+    <li>Custom metadata fields from CMS</li>
+  </ul>
+
+  <h3>XPath Examples</h3>
+
+  <p>
+    <em>Note: Full XPath examples are stored in Confluence code widgets. Navigate to specific 
+    sections to view complete extraction scripts.</em>
+  </p>
+
+  <p>
+    Common XPath patterns:
+  </p>
+  <ul>
+    <li><code>//meta[@name='description']/@content</code> - Extract meta description</li>
+    <li><code>//h1/text()</code> - Extract H1 heading text</li>
+    <li><code>//article/@data-published-date</code> - Extract custom data attributes</li>
+  </ul>
+
+  <h3>Integration with Power BI</h3>
+
+  <p>
+    Exported crawl data can be imported into Power BI for:
+  </p>
+  <ul>
+    <li>Content inventory analysis</li>
+    <li>SEO performance tracking</li>
+    <li>Metadata quality monitoring</li>
+    <li>Historical trend analysis</li>
+  </ul>
+
+</div>

@@ -1,0 +1,58 @@
+<div style="font-family: Arial, sans-serif; line-height: 1.5; max-width: 800px;">
+
+  <h2>Dimension Tables</h2>
+
+  <p>
+    This page documents our standard dimension table structures. Dimension tables provide 
+    descriptive context for the measures in fact tables.
+  </p>
+
+  <h3>Dimension Table Principles</h3>
+
+  <ul>
+    <li>Contain descriptive attributes and hierarchies</li>
+    <li>Have a single primary key (surrogate key recommended)</li>
+    <li>Should be denormalized for query performance</li>
+    <li>Include slowly changing dimension (SCD) logic when needed</li>
+  </ul>
+
+  <h3>Standard Dimension Tables</h3>
+
+  <h4>Dim_Date</h4>
+  <ul>
+    <li>Comprehensive date dimension with calendar hierarchies</li>
+    <li>Attributes: Year, Quarter, Month, Week, Day, Fiscal Year, etc.</li>
+    <li>Standard across all models for time-based analysis</li>
+  </ul>
+
+  <h4>Dim_Content</h4>
+  <ul>
+    <li>Content metadata and attributes</li>
+    <li>Attributes: Content ID, Title, Type, Category, Author, Publish Date</li>
+    <li>Links to Drupal content management system</li>
+  </ul>
+
+  <h4>Dim_Team</h4>
+  <ul>
+    <li>Organizational structure and team information</li>
+    <li>Attributes: Team ID, Name, Department, Manager, Location</li>
+    <li>Used for Jira and workflow analytics</li>
+  </ul>
+
+  <h4>Dim_Ticket</h4>
+  <ul>
+    <li>Jira ticket attributes and metadata</li>
+    <li>Attributes: Ticket Key, Type, Priority, Status, Component, Labels</li>
+    <li>Links to Fact_TicketHistory</li>
+  </ul>
+
+  <h3>Best Practices</h3>
+
+  <ul>
+    <li>Always include a Date dimension in every model</li>
+    <li>Use surrogate keys (integer IDs) rather than natural keys</li>
+    <li>Include descriptive columns for reporting and filtering</li>
+    <li>Maintain consistent naming conventions across models</li>
+  </ul>
+
+</div>

@@ -1,0 +1,59 @@
+<div style="font-family: Arial, sans-serif; line-height: 1.5; max-width: 800px;">
+
+  <h2>Cross-Team Data Flow Blueprint</h2>
+
+  <p>
+    This page documents the data flow blueprint showing how data moves between systems, 
+    teams, and analytics platforms across HHS Analytics.
+  </p>
+
+  <h3>Data Sources</h3>
+
+  <ul>
+    <li><strong>Jira:</strong> Ticket and workflow data</li>
+    <li><strong>GA4:</strong> Website analytics data</li>
+    <li><strong>Sprinklr:</strong> Social media analytics</li>
+    <li><strong>Drupal:</strong> Content management metadata</li>
+    <li><strong>Screaming Frog:</strong> Website crawl data</li>
+  </ul>
+
+  <h3>Data Flow Architecture</h3>
+
+  <h4>Extraction</h4>
+  <ol>
+    <li>API calls or connectors extract data from source systems</li>
+    <li>Data is pulled on scheduled intervals (daily, hourly)</li>
+    <li>Initial data validation and error handling</li>
+  </ol>
+
+  <h4>Transformation</h4>
+  <ol>
+    <li>M scripts in Power Query clean and reshape data</li>
+    <li>Data is transformed to star schema structure</li>
+    <li>Business logic and calculations applied</li>
+  </ol>
+
+  <h4>Loading</h4>
+  <ol>
+    <li>Data loaded into Power BI star schema models</li>
+    <li>Dimensions and fact tables updated</li>
+    <li>Measures and calculated columns refreshed</li>
+  </ol>
+
+  <h3>Team Workflows</h3>
+
+  <ul>
+    <li><strong>Engineering:</strong> Data infrastructure, API development, pipeline maintenance</li>
+    <li><strong>Analytics:</strong> Data modeling, dashboard development, analysis</li>
+    <li><strong>UXD:</strong> Dashboard design, visualization standards</li>
+    <li><strong>Content:</strong> Metadata standards, content analytics</li>
+  </ul>
+
+  <h3>Visual Diagram</h3>
+
+  <p>
+    <em>Note: Visual data flow diagram can be embedded in Confluence using diagram 
+    widget or image. Shows complete architecture from sources to dashboards.</em>
+  </p>
+
+</div>

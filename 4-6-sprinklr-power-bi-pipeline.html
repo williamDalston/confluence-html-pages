@@ -1,0 +1,58 @@
+<div style="font-family: Arial, sans-serif; line-height: 1.5; max-width: 800px;">
+
+  <h2>Sprinklr → Power BI Pipeline Plan</h2>
+
+  <p>
+    This page outlines the data pipeline architecture for integrating Sprinklr data 
+    into Power BI for comprehensive social media analytics.
+  </p>
+
+  <h3>Pipeline Architecture</h3>
+
+  <h4>Data Flow</h4>
+  <ol>
+    <li><strong>Data Extraction:</strong> Sprinklr API calls to retrieve metrics</li>
+    <li><strong>Data Transformation:</strong> M scripts in Power Query to clean and reshape data</li>
+    <li><strong>Data Loading:</strong> Load into Power BI star schema model</li>
+    <li><strong>Data Refresh:</strong> Scheduled refresh in Power BI Service</li>
+  </ol>
+
+  <h3>Data Model Structure</h3>
+
+  <ul>
+    <li><strong>Fact_SocialEngagement:</strong> Daily engagement metrics (likes, comments, shares)</li>
+    <li><strong>Dim_Date:</strong> Date dimension for time-based analysis</li>
+    <li><strong>Dim_Platform:</strong> Social media platform attributes</li>
+    <li><strong>Dim_Content:</strong> Post and content metadata</li>
+    <li><strong>Dim_Campaign:</strong> Campaign grouping and attributes</li>
+  </ul>
+
+  <h3>Refresh Strategy</h3>
+
+  <ul>
+    <li><strong>Frequency:</strong> Daily refresh recommended</li>
+    <li><strong>Incremental Load:</strong> Load only new/changed data where possible</li>
+    <li><strong>Error Handling:</strong> Automated retry logic and error notifications</li>
+  </ul>
+
+  <h3>Key Metrics</h3>
+
+  <p>
+    Power BI dashboards will include:
+  </p>
+  <ul>
+    <li>Follower growth trends</li>
+    <li>Engagement rate analysis</li>
+    <li>Content performance rankings</li>
+    <li>Platform comparison metrics</li>
+    <li>Campaign ROI analysis</li>
+  </ul>
+
+  <h3>Implementation Status</h3>
+
+  <p>
+    <em>Note: This pipeline is in planning/development. Status updates will be maintained 
+    in this page as implementation progresses.</em>
+  </p>
+
+</div>

@@ -1,0 +1,83 @@
+<div style="font-family: Arial, sans-serif; line-height: 1.5; max-width: 800px;">
+
+  <h2>Risk: Tool Token Limits (GA4, Screaming Frog)</h2>
+
+  <p>
+    This page documents risks and limitations related to API token limits and usage 
+    restrictions for tools used in HHS Analytics, including GA4 and Screaming Frog.
+  </p>
+
+  <h3>Google Analytics 4 (GA4) Limits</h3>
+
+  <h4>API Quota Limits</h4>
+  <ul>
+    <li><strong>Queries per Day:</strong> [Document actual limit]</li>
+    <li><strong>Queries per 100 Seconds:</strong> [Document actual limit]</li>
+    <li><strong>Concurrent Requests:</strong> [Document actual limit]</li>
+  </ul>
+
+  <h4>Risk Mitigation</h4>
+  <ul>
+    <li>Implement query batching and optimization</li>
+    <li>Use incremental refresh where possible</li>
+    <li>Cache data to reduce API calls</li>
+    <li>Monitor API usage and set up alerts</li>
+  </ul>
+
+  <h3>Screaming Frog Limits</h3>
+
+  <h4>License Restrictions</h4>
+  <ul>
+    <li><strong>Free Version:</strong> Limited to 500 URLs per crawl</li>
+    <li><strong>Licensed Version:</strong> Unlimited URLs</li>
+    <li><strong>Automation:</strong> Scheduling requires licensed version</li>
+  </ul>
+
+  <h4>Risk Mitigation</h4>
+  <ul>
+    <li>Ensure proper licensing is maintained</li>
+    <li>Optimize crawl configurations to avoid unnecessary crawling</li>
+    <li>Use list mode for targeted crawls</li>
+    <li>Monitor crawl duration and resource usage</li>
+  </ul>
+
+  <h3>Other Tool Limits</h3>
+
+  <ul>
+    <li><strong>Sprinklr API:</strong> [Document limits and mitigation]</li>
+    <li><strong>Jira API:</strong> [Document limits and mitigation]</li>
+    <li><strong>Power BI:</strong> [Document refresh limits and quotas]</li>
+  </ul>
+
+  <h3>Monitoring & Alerts</h3>
+
+  <p>
+    Implement monitoring for:
+  </p>
+  <ul>
+    <li>API usage approaching limits</li>
+    <li>Failed requests due to quota limits</li>
+    <li>Data refresh failures</li>
+    <li>Tool availability and downtime</li>
+  </ul>
+
+  <h3>Contingency Plans</h3>
+
+  <p>
+    Develop contingency plans for:
+  </p>
+  <ul>
+    <li>Exceeding API limits</li>
+    <li>Tool unavailability</li>
+    <li>License expiration</li>
+    <li>Data refresh failures</li>
+  </ul>
+
+  <h3>Updates</h3>
+
+  <p>
+    <em>Note: This page should be updated regularly as limits change or new risks 
+    are identified. Monitor tool documentation for updates.</em>
+  </p>
+
+</div>

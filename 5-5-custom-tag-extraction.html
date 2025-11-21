@@ -1,0 +1,67 @@
+<div style="font-family: Arial, sans-serif; line-height: 1.5; max-width: 800px;">
+
+  <h2>Custom Tag Extraction Examples (XPath examples)</h2>
+
+  <p>
+    This page contains XPath examples for extracting custom tags and metadata from website 
+    content using Screaming Frog or other crawling tools.
+  </p>
+
+  <h3>XPath Extraction Patterns</h3>
+
+  <h4>Metadata Tag Extraction</h4>
+  <p><em>Extract custom metadata attributes</em></p>
+  <pre style="background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto;">
+//meta[@name='custom-field']/@content
+//article/@data-topic
+//div[@class='content-tags']/span/text()
+</pre>
+
+  <h4>Taxonomy Extraction</h4>
+  <p><em>Extract taxonomy terms and categories</em></p>
+  <pre style="background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto;">
+//div[@class='topic-tags']//a/text()
+//span[@class='category']/text()
+//ul[@class='taxonomy-list']/li/a/text()
+</pre>
+
+  <h4>Content Type Detection</h4>
+  <p><em>Identify content type from page structure</em></p>
+  <pre style="background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto;">
+//body/@data-content-type
+//article/@itemtype
+//div[@class='content-wrapper']/@data-type
+</pre>
+
+  <h3>Custom Attributes</h3>
+
+  <p>
+    Examples of custom attributes that can be extracted:
+  </p>
+  <ul>
+    <li>Department or owner</li>
+    <li>Publication date and author</li>
+    <li>Content classification</li>
+    <li>Campaign or initiative tags</li>
+  </ul>
+
+  <h3>Integration</h3>
+
+  <p>
+    Extracted tags can be used in:
+  </p>
+  <ul>
+    <li>Content inventory analysis</li>
+    <li>Tagging quality assessment</li>
+    <li>Taxonomy gap analysis</li>
+    <li>Power BI content models</li>
+  </ul>
+
+  <h3>Full Examples</h3>
+
+  <p>
+    <em>Note: Complete XPath examples with configuration details are stored in Confluence 
+    code widgets. See Section 3-3 for custom extraction scripts.</em>
+  </p>
+
+</div>

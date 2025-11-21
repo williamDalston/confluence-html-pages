@@ -1,0 +1,56 @@
+<div style="font-family: Arial, sans-serif; line-height: 1.5; max-width: 800px;">
+
+  <h2>Example API Calls (HTML widget)</h2>
+
+  <p>
+    This page contains example Sprinklr API calls and request/response patterns. Use these 
+    examples as templates when integrating Sprinklr data into Power BI or other analytics tools.
+  </p>
+
+  <h3>API Endpoints</h3>
+
+  <h4>Follower Analytics</h4>
+  <p><em>Endpoint for retrieving follower counts and growth metrics</em></p>
+  <pre style="background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto;">
+GET /v2/analytics/followers
+Query Parameters:
+  - platform: twitter, facebook, instagram
+  - date_range: start_date, end_date
+  - metrics: follower_count, growth_rate
+</pre>
+
+  <h4>Engagement Metrics</h4>
+  <p><em>Endpoint for retrieving engagement data</em></p>
+  <pre style="background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto;">
+GET /v2/analytics/engagement
+Query Parameters:
+  - content_type: posts, comments, shares
+  - time_period: daily, weekly, monthly
+</pre>
+
+  <h3>Request Headers</h3>
+
+  <ul>
+    <li><code>Authorization: Bearer {API_KEY}</code></li>
+    <li><code>Content-Type: application/json</code></li>
+  </ul>
+
+  <h3>Response Format</h3>
+
+  <p>
+    API responses are in JSON format and include:
+  </p>
+  <ul>
+    <li>Metrics data (counts, rates, percentages)</li>
+    <li>Date/time information</li>
+    <li>Platform and content type identifiers</li>
+  </ul>
+
+  <h3>Full Examples</h3>
+
+  <p>
+    <em>Note: Complete API call examples with authentication and error handling are stored 
+    in Confluence code widgets. See Section 4-1 for API overview.</em>
+  </p>
+
+</div>

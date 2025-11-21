@@ -1,0 +1,52 @@
+<div style="font-family: Arial, sans-serif; line-height: 1.5; max-width: 800px;">
+
+  <h2>Fact_TicketHistory Model</h2>
+
+  <p>
+    This page documents the Fact_TicketHistory star schema model for Jira ticket tracking 
+    and workflow analytics in Power BI.
+  </p>
+
+  <h3>Model Overview</h3>
+
+  <p>
+    Fact_TicketHistory captures ticket status changes and transitions over time, enabling 
+    analysis of ticket lifecycles, SLA compliance, and team performance.
+  </p>
+
+  <h3>Fact Table Structure</h3>
+
+  <h4>Fact_TicketHistory</h4>
+  <ul>
+    <li><strong>TicketHistoryID:</strong> Surrogate key (primary key)</li>
+    <li><strong>TicketKey:</strong> Foreign key to Dim_Ticket</li>
+    <li><strong>DateKey:</strong> Foreign key to Dim_Date</li>
+    <li><strong>StatusFromKey:</strong> Foreign key to Dim_Status</li>
+    <li><strong>StatusToKey:</strong> Foreign key to Dim_Status</li>
+    <li><strong>TeamKey:</strong> Foreign key to Dim_Team</li>
+    <li><strong>AssigneeKey:</strong> Foreign key to Dim_User</li>
+    <li><strong>TimeInStatus:</strong> Minutes in previous status</li>
+    <li><strong>SLACompliant:</strong> Boolean flag (1 or 0)</li>
+    <li><strong>Timestamp:</strong> Status change timestamp</li>
+  </ul>
+
+  <h3>Dimension Tables</h3>
+
+  <ul>
+    <li><strong>Dim_Ticket:</strong> Ticket attributes (key, type, priority, component)</li>
+    <li><strong>Dim_Date:</strong> Date dimension for time-based analysis</li>
+    <li><strong>Dim_Status:</strong> Status values and categories</li>
+    <li><strong>Dim_Team:</strong> Team structure and organization</li>
+    <li><strong>Dim_User:</strong> User/assignee information</li>
+  </ul>
+
+  <h3>Key Measures</h3>
+
+  <ul>
+    <li><strong>Ticket Count:</strong> Total number of tickets</li>
+    <li><strong>Average Time in Status:</strong> Mean time tickets spend in each status</li>
+    <li><strong>SLA Compliance Rate:</strong> Percentage of tickets meeting SLA</li>
+    <li><strong>Resolution Time:</strong> Time from creation to resolution</li>
+  </ul>
+
+</div>

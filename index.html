@@ -131,6 +131,90 @@
         }
     </style>
     <script>
+        // Configuration: List all HTML page files here (excluding index.html)
+        // Pages are organized by section for ASPA HHS Analytics
+        const pages = [
+            // Section 1: Overview & Orientation
+            {file: '1-1-welcome-purpose.html', section: 'Section 1: Overview & Orientation', desc: 'Welcome page and purpose statement for ASPA HHS Analytics Power BI workspace'},
+            {file: '1-2-my-role.html', section: 'Section 1: Overview & Orientation', desc: 'Will Alston\'s role, responsibilities, and focus areas as Power BI & Analytics Lead'},
+            {file: '1-3-analytics-team-map.html', section: 'Section 1: Overview & Orientation', desc: 'Team structure, key collaborators, and their roles (Bill, David, Sogol, Nathan, Caroline, Stephanie, Adrian)'},
+            {file: '1-4-data-sources-tools.html', section: 'Section 1: Overview & Orientation', desc: 'Complete landscape of data sources (GA4, Jira, Sprinklr, Screaming Frog, Drupal) and analytical tools'},
+            
+            // Section 2: Templates & Data Models
+            {file: '2-1-templates-star-schema.html', section: 'Section 2: Templates & Data Models', desc: 'Star schema templates and modeling principles for Power BI'},
+            {file: '2-2-data-model-diagrams.html', section: 'Section 2: Templates & Data Models', desc: 'Visual diagrams of Power BI data models and star schema structures'},
+            {file: '2-3-fact-tables.html', section: 'Section 2: Templates & Data Models', desc: 'Fact table structures and templates (Ticket History, Page Views, Social Engagement)'},
+            {file: '2-4-dimension-tables.html', section: 'Section 2: Templates & Data Models', desc: 'Dimension table templates (Date, Content, Team, Ticket)'},
+            {file: '2-5-m-scripts-dax-snippets.html', section: 'Section 2: Templates & Data Models', desc: 'Reusable M (Power Query) scripts and DAX formula patterns'},
+            {file: '2-6-power-bi-embeds.html', section: 'Section 2: Templates & Data Models', desc: 'Power BI dashboard embeds and mockups for HHS KPIs'},
+            {file: '2-7-connection-guides.html', section: 'Section 2: Templates & Data Models', desc: 'Step-by-step guides for connecting Power BI to Jira, GA4, and Sprinklr'},
+            
+            // Section 3: Web Analytics – Screaming Frog
+            {file: '3-1-screaming-frog-crash-course.html', section: 'Section 3: Web Analytics – Screaming Frog', desc: 'Introduction to Screaming Frog SEO Spider and key features (with Stephanie)'},
+            {file: '3-2-crawl-configuration.html', section: 'Section 3: Web Analytics – Screaming Frog', desc: 'Recommended crawl configuration settings and best practices'},
+            {file: '3-3-custom-extraction-scripts.html', section: 'Section 3: Web Analytics – Screaming Frog', desc: 'Custom extraction scripts using XPath, CSS selectors, and regex'},
+            {file: '3-4-historical-crawl-library.html', section: 'Section 3: Web Analytics – Screaming Frog', desc: 'Archive of historical crawl results and comparisons'},
+            {file: '3-5-upload-area.html', section: 'Section 3: Web Analytics – Screaming Frog', desc: 'Area for uploading crawl results and integration with Power BI'},
+            
+            // Section 4: Social Analytics – Sprinklr
+            {file: '4-1-sprinklr-api-overview.html', section: 'Section 4: Social Analytics – Sprinklr', desc: 'Sprinklr API overview and integration strategy (with Caroline)'},
+            {file: '4-2-example-api-calls.html', section: 'Section 4: Social Analytics – Sprinklr', desc: 'Example Sprinklr API calls and authentication methods'},
+            {file: '4-3-available-metrics.html', section: 'Section 4: Social Analytics – Sprinklr', desc: 'Available Sprinklr metrics for Power BI dashboards'},
+            {file: '4-4-caroline-docs-links.html', section: 'Section 4: Social Analytics – Sprinklr', desc: 'Links to Caroline\'s Sprinklr documentation and resources'},
+            {file: '4-5-rows-embedded-charts.html', section: 'Section 4: Social Analytics – Sprinklr', desc: 'Current rows.com embedded charts (targeting automation)'},
+            {file: '4-6-sprinklr-power-bi-pipeline.html', section: 'Section 4: Social Analytics – Sprinklr', desc: 'Sprinklr → Power BI data pipeline and automation plan'},
+            
+            // Section 5: Content & Metadata
+            {file: '5-1-drupal-metadata-dictionary.html', section: 'Section 5: Content & Metadata', desc: 'Drupal CMS metadata dictionary and content attributes'},
+            {file: '5-2-audience-taxonomy.html', section: 'Section 5: Content & Metadata', desc: 'Audience personas and taxonomy from Adrian (Qualtrics data)'},
+            {file: '5-3-topic-taxonomy.html', section: 'Section 5: Content & Metadata', desc: 'Content topic taxonomy and page-topic alignment'},
+            {file: '5-4-canonical-url-tagging.html', section: 'Section 5: Content & Metadata', desc: 'Canonical URL tagging standards and validation'},
+            {file: '5-5-custom-tag-extraction.html', section: 'Section 5: Content & Metadata', desc: 'Custom metadata extraction patterns and workflows'},
+            {file: '5-6-seo-optimization.html', section: 'Section 5: Content & Metadata', desc: 'SEO optimization guidelines and quality metrics'},
+            
+            // Section 6: Jira Analytics & Team Workflows
+            {file: '6-1-jira-api-setup.html', section: 'Section 6: Jira Analytics & Team Workflows', desc: 'Jira API setup, authentication, and connection to Power BI'},
+            {file: '6-2-fact-ticket-history.html', section: 'Section 6: Jira Analytics & Team Workflows', desc: 'Fact_TicketHistory star schema model for Jira metrics'},
+            {file: '6-3-team-sla-dashboard.html', section: 'Section 6: Jira Analytics & Team Workflows', desc: 'Team SLA dashboard design for Nathan (Service Desk metrics)'},
+            {file: '6-4-workflow-map.html', section: 'Section 6: Jira Analytics & Team Workflows', desc: 'Jira workflow visualization and ticket flow mapping'},
+            {file: '6-5-jira-data-dictionary.html', section: 'Section 6: Jira Analytics & Team Workflows', desc: 'Jira data dictionary and field mappings for Power BI'},
+            
+            // Section 7: Dashboard Designs & KPIs
+            {file: '7-1-website-quality-score.html', section: 'Section 7: Dashboard Designs & KPIs', desc: 'Website Quality Score baseline dashboard for HHS leadership'},
+            {file: '7-2-content-reading-level.html', section: 'Section 7: Dashboard Designs & KPIs', desc: 'Plain language and reading level tracking dashboard'},
+            {file: '7-3-engagement-performance.html', section: 'Section 7: Dashboard Designs & KPIs', desc: 'Website engagement and performance metrics dashboard'},
+            {file: '7-4-social-trends-dashboard.html', section: 'Section 7: Dashboard Designs & KPIs', desc: 'Social media trends and engagement dashboard (Sprinklr data)'},
+            {file: '7-5-service-desk-throughput.html', section: 'Section 7: Dashboard Designs & KPIs', desc: 'Service desk throughput and SLA compliance dashboard'},
+            {file: '7-6-executive-summary.html', section: 'Section 7: Dashboard Designs & KPIs', desc: 'Executive-level KPI summary dashboard for HHS leadership'},
+            
+            // Section 8: Planning & Requirements
+            {file: '8-1-analytics-goals.html', section: 'Section 8: Planning & Requirements', desc: 'Unified analytics system goals and project objectives'},
+            {file: '8-2-team-needs.html', section: 'Section 8: Planning & Requirements', desc: 'Team needs, priorities, and stakeholder requirements'},
+            {file: '8-3-data-flow-blueprint.html', section: 'Section 8: Planning & Requirements', desc: 'Data flow blueprint and architecture diagrams (with David)'},
+            {file: '8-4-crawl-scheduling.html', section: 'Section 8: Planning & Requirements', desc: 'Strategic crawl scheduling to manage GA tokens (with Stephanie)'},
+            {file: '8-5-metrics-cadence.html', section: 'Section 8: Planning & Requirements', desc: 'Monthly/quarterly reporting cadence and timeline'},
+            {file: '8-6-tool-token-limits.html', section: 'Section 8: Planning & Requirements', desc: 'API token limits and resource management'},
+            
+            // Section 9: Security, Compliance & Access
+            {file: '9-1-clearance-status.html', section: 'Section 9: Security, Compliance & Access', desc: 'Clearance status and access provisioning (non-sensitive information)'},
+            {file: '9-2-hhs-records-management.html', section: 'Section 9: Security, Compliance & Access', desc: 'HHS records management and compliance requirements'},
+            {file: '9-3-api-token-governance.html', section: 'Section 9: Security, Compliance & Access', desc: 'API token governance and security best practices'},
+            {file: '9-4-pii-handling.html', section: 'Section 9: Security, Compliance & Access', desc: 'PII (Personally Identifiable Information) handling and data protection'},
+            {file: '9-5-vpn-rules.html', section: 'Section 9: Access & Clearance', desc: 'VPN requirements and access rules for data sources'},
+            
+            // Section 10: Training & Onboarding
+            {file: '10-1-power-bi-basics.html', section: 'Section 10: Training & Onboarding', desc: 'Power BI basics and fundamentals for new team members'},
+            {file: '10-2-intro-ga4.html', section: 'Section 10: Training & Onboarding', desc: 'Introduction to Google Analytics 4 for analytics team'},
+            {file: '10-3-intro-screaming-frog.html', section: 'Section 10: Training & Onboarding', desc: 'Introduction to Screaming Frog for web analytics'},
+            {file: '10-4-intro-sprinklr.html', section: 'Section 10: Training & Onboarding', desc: 'Introduction to Sprinklr for social media analytics'},
+            {file: '10-5-reading-dashboards.html', section: 'Section 10: Training & Onboarding', desc: 'Guide to reading and interpreting analytics dashboards'}
+        ];
+
+        // GitHub Pages configuration
+        const GITHUB_PAGES_BASE = 'https://williamdalston.github.io/confluence-html-pages/';
+        const GITHUB_REPO = 'williamDalston/confluence-html-pages';
+        const GITHUB_BRANCH = 'main';
+
         function copyToClipboard(text, button) {
             navigator.clipboard.writeText(text).then(function() {
                 const originalText = button.textContent;
@@ -142,11 +226,144 @@
                 }, 2000);
             });
         }
-        
-        function copyFileContent(fileName) {
-            // This would need to be implemented with fetch to get the file content
-            // For now, we'll just show an alert
-            alert('To copy the file content:\n1. Click the "View Raw" link\n2. Copy all the content from the page\n3. Paste into Confluence HTML widget');
+
+        function formatTitle(filename) {
+            // Remove .html extension
+            let title = filename.replace('.html', '');
+            // Replace hyphens with spaces
+            title = title.replace(/-/g, ' ');
+            // Capitalize first letter of each word
+            title = title.split(' ').map(word => {
+                return word.charAt(0).toUpperCase() + word.slice(1);
+            }).join(' ');
+            return title;
+        }
+
+        function generateDescription(pageObj) {
+            // Use the description from the page object if available
+            if (pageObj && pageObj.desc) {
+                return pageObj.desc;
+            }
+            // Fallback to filename-based description
+            const filename = typeof pageObj === 'string' ? pageObj : pageObj.file;
+            const desc = formatTitle(filename).toLowerCase();
+            return `HTML content widget: ${desc}`;
+        }
+
+        function getSection(pageObj) {
+            // Return the section for grouping pages
+            if (pageObj && pageObj.section) {
+                return pageObj.section;
+            }
+            return 'Other';
+        }
+
+        function getFilename(pageObj) {
+            // Extract filename from page object or string
+            return typeof pageObj === 'string' ? pageObj : pageObj.file;
+        }
+
+        async function extractPageTitle(pageObj) {
+            const filename = getFilename(pageObj);
+            try {
+                const response = await fetch(`${GITHUB_PAGES_BASE}${filename}`);
+                if (!response.ok) throw new Error('Failed to fetch');
+                const html = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                // Try to find h2 or h1 tag
+                const h2 = doc.querySelector('h2');
+                const h1 = doc.querySelector('h1');
+                if (h2 && h2.textContent.trim()) return h2.textContent.trim();
+                if (h1 && h1.textContent.trim()) return h1.textContent.trim();
+            } catch (e) {
+                // Fallback to filename-based title
+            }
+            return formatTitle(filename);
+        }
+
+        async function renderPages() {
+            const container = document.getElementById('pages-container');
+            container.innerHTML = '<p>Loading pages...</p>';
+
+            // Fetch all titles in parallel for better performance
+            const titlePromises = pages.map(pageObj => extractPageTitle(pageObj));
+            const titles = await Promise.all(titlePromises);
+
+            // Group pages by section
+            const sections = {};
+            for (let i = 0; i < pages.length; i++) {
+                const pageObj = pages[i];
+                const section = getSection(pageObj);
+                if (!sections[section]) {
+                    sections[section] = [];
+                }
+                sections[section].push({
+                    pageObj: pageObj,
+                    title: titles[i]
+                });
+            }
+
+            // Render pages grouped by section
+            let html = '';
+            const sectionOrder = [
+                'Section 1: Overview & Orientation',
+                'Section 2: Templates & Data Models',
+                'Section 3: Web Analytics – Screaming Frog',
+                'Section 4: Social Analytics – Sprinklr',
+                'Section 5: Content & Metadata',
+                'Section 6: Jira Analytics & Team Workflows',
+                'Section 7: Dashboard Designs & KPIs',
+                'Section 8: Planning & Requirements',
+                'Section 9: Security, Compliance & Access',
+                'Section 10: Analytics Training Center',
+                'Other'
+            ];
+
+            for (const sectionName of sectionOrder) {
+                if (!sections[sectionName]) continue;
+
+                html += `<h2 style="color: #0052CC; border-bottom: 2px solid #0052CC; padding-bottom: 10px; margin-top: 30px; margin-bottom: 20px;">${sectionName}</h2>`;
+
+                for (const page of sections[sectionName]) {
+                    const filename = getFilename(page.pageObj);
+                    const title = page.title;
+                    const previewUrl = `${GITHUB_PAGES_BASE}${filename}`;
+                    const rawUrl = `https://raw.githubusercontent.com/${GITHUB_REPO}/${GITHUB_BRANCH}/${filename}`;
+                    const githubUrl = `https://github.com/${GITHUB_REPO}/blob/${GITHUB_BRANCH}/${filename}`;
+                    const description = generateDescription(page.pageObj);
+
+                    html += `
+                        <div class="page-item">
+                            <h3>${title}</h3>
+                            <p><span class="file-badge">${filename}</span></p>
+                            <p style="margin-top: 10px;">${description}</p>
+                            
+                            <div class="link-group">
+                                <div class="link-item">
+                                    <span class="link-label">📋 View Page:</span>
+                                    <a href="${previewUrl}" target="_blank" class="btn">Preview Page</a>
+                                </div>
+                                
+                                <div class="link-item">
+                                    <span class="link-label">🔗 Raw URL:</span>
+                                    <div style="flex: 1;">
+                                        <code class="link-url" onclick="copyToClipboard('${rawUrl}', this)" style="cursor: pointer; user-select: all;">${rawUrl}</code>
+                                        <button class="btn btn-secondary" onclick="copyToClipboard('${rawUrl}', this)" style="margin-left: 10px;">Copy URL</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="link-item">
+                                    <span class="link-label">📄 GitHub File:</span>
+                                    <a href="${githubUrl}" target="_blank" class="btn">View on GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+
+            container.innerHTML = html;
         }
     </script>
 </head>
@@ -155,34 +372,13 @@
         <h1>📄 Confluence HTML Pages for Power BI Workspace</h1>
         
         <div class="intro">
-            <p><strong>Welcome!</strong> This repository contains HTML content widgets for embedding into Confluence pages.</p>
-            <p style="margin: 5px 0 0 0;"><strong>Quick Start:</strong> Click on any page below to view it, or copy the raw GitHub URL to access the HTML content.</p>
+            <p><strong>Welcome to ASPA HHS Analytics – Power BI Workspace!</strong> This repository contains HTML content widgets for embedding into Confluence pages.</p>
+            <p style="margin: 5px 0 0 0;"><strong>Quick Start:</strong> Click on any page below to view it, or copy the raw GitHub URL to access the HTML content for embedding in Confluence.</p>
+            <p style="margin: 10px 0 0 0;"><strong>Purpose:</strong> This workspace supports unified analytics dashboards integrating GA4, Jira, Sprinklr, Screaming Frog, and Drupal data for HHS leadership reporting.</p>
         </div>
         
-        <div class="page-item">
-            <h3>Page 1: Purpose of This Power BI Workspace</h3>
-            <p><span class="file-badge">page1-purpose.html</span></p>
-            <p style="margin-top: 10px;">Central knowledge hub overview and purpose statement for HHS Analytics Power BI workspace.</p>
-            
-            <div class="link-group">
-                <div class="link-item">
-                    <span class="link-label">📋 View Page:</span>
-                    <a href="page1-purpose.html" target="_blank" class="btn">Preview Page</a>
-                </div>
-                
-                <div class="link-item">
-                    <span class="link-label">🔗 Raw URL:</span>
-                    <div style="flex: 1;">
-                        <code class="link-url" id="raw-url-1" onclick="copyToClipboard('https://raw.githubusercontent.com/williamDalston/confluence-html-pages/main/page1-purpose.html', this)" style="cursor: pointer; user-select: all;">https://raw.githubusercontent.com/williamDalston/confluence-html-pages/main/page1-purpose.html</code>
-                        <button class="btn btn-secondary" onclick="copyToClipboard('https://raw.githubusercontent.com/williamDalston/confluence-html-pages/main/page1-purpose.html', this)" style="margin-left: 10px;">Copy URL</button>
-                    </div>
-                </div>
-                
-                <div class="link-item">
-                    <span class="link-label">📄 GitHub File:</span>
-                    <a href="https://github.com/williamDalston/confluence-html-pages/blob/main/page1-purpose.html" target="_blank" class="btn">View on GitHub</a>
-                </div>
-            </div>
+        <div id="pages-container">
+            <!-- Pages will be dynamically generated here -->
         </div>
         
         <div class="note">
@@ -193,5 +389,9 @@
             4. Save your Confluence page
         </div>
     </div>
+    <script>
+        // Render all pages when the page loads
+        renderPages();
+    </script>
 </body>
 </html>

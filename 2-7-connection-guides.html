@@ -1,0 +1,55 @@
+<div style="font-family: Arial, sans-serif; line-height: 1.5; max-width: 800px;">
+
+  <h2>Connection Guides</h2>
+
+  <p>
+    This page provides step-by-step guides for connecting Power BI to various data sources 
+    used in HHS Analytics, including Jira, GA4, and Sprinklr.
+  </p>
+
+  <h3>Available Connection Guides</h3>
+
+  <h4>Jira Connection</h4>
+  <p>
+    Connect Power BI to Jira using the Jira REST API or Jira Cloud connector.
+  </p>
+  <ul>
+    <li>Authentication method: API token</li>
+    <li>Required permissions: Read access to tickets and projects</li>
+    <li>Data refresh frequency: Daily or hourly depending on use case</li>
+    <li>See Section 6 for detailed Jira API setup and queries</li>
+  </ul>
+
+  <h4>Google Analytics 4 (GA4) Connection</h4>
+  <p>
+    Connect Power BI to GA4 using the GA4 connector or API integration.
+  </p>
+  <ul>
+    <li>Authentication method: OAuth 2.0</li>
+    <li>Required permissions: Read access to analytics data</li>
+    <li>Data refresh frequency: Daily recommended</li>
+    <li>Note: Be aware of GA4 token limits (see Section 8)</li>
+  </ul>
+
+  <h4>Sprinklr Connection</h4>
+  <p>
+    Connect Power BI to Sprinklr using the Sprinklr API.
+  </p>
+  <ul>
+    <li>Authentication method: API key</li>
+    <li>Required permissions: Read access to analytics and engagement data</li>
+    <li>Data refresh frequency: Daily or as needed</li>
+    <li>See Section 4 for detailed Sprinklr API overview and examples</li>
+  </ul>
+
+  <h3>Connection Best Practices</h3>
+
+  <ul>
+    <li>Always use parameterized queries for flexibility</li>
+    <li>Implement incremental refresh where possible</li>
+    <li>Store credentials securely in Power BI Service</li>
+    <li>Document any custom M scripts or transformations</li>
+    <li>Test connections before deploying to production</li>
+  </ul>
+
+</div>

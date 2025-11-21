@@ -1,0 +1,72 @@
+<div style="font-family: Arial, sans-serif; line-height: 1.5; max-width: 800px;">
+
+  <h2>Data Dictionary for Jira Fields</h2>
+
+  <p>
+    This page provides a comprehensive data dictionary of all Jira fields used in analytics, 
+    including definitions, data types, and usage notes.
+  </p>
+
+  <h3>Core Ticket Fields</h3>
+
+  <ul>
+    <li><strong>Issue Key:</strong> Unique identifier (e.g., HHS-123)</li>
+    <li><strong>Summary:</strong> Ticket title or headline</li>
+    <li><strong>Description:</strong> Detailed ticket description</li>
+    <li><strong>Issue Type:</strong> Bug, Story, Task, Epic, etc.</li>
+    <li><strong>Status:</strong> Current status (Open, In Progress, Done, etc.)</li>
+    <li><strong>Priority:</strong> Critical, High, Medium, Low</li>
+  </ul>
+
+  <h3>Assignment Fields</h3>
+
+  <ul>
+    <li><strong>Assignee:</strong> User currently assigned to ticket</li>
+    <li><strong>Reporter:</strong> User who created the ticket</li>
+    <li><strong>Component:</strong> System component or area</li>
+    <li><strong>Team:</strong> Owning team or department</li>
+  </ul>
+
+  <h3>Date Fields</h3>
+
+  <ul>
+    <li><strong>Created:</strong> Ticket creation timestamp</li>
+    <li><strong>Updated:</strong> Last update timestamp</li>
+    <li><strong>Resolved:</strong> Resolution timestamp (if resolved)</li>
+    <li><strong>Due Date:</strong> Target completion date</li>
+  </ul>
+
+  <h3>Custom Fields</h3>
+
+  <ul>
+    <li><strong>Labels:</strong> Free-form tags for categorization</li>
+    <li><strong>Epic Link:</strong> Link to parent epic</li>
+    <li><strong>Sprint:</strong> Sprint assignment (for Agile teams)</li>
+    <li><strong>Story Points:</strong> Effort estimation</li>
+  </ul>
+
+  <h3>Status History</h3>
+
+  <p>
+    Status change history includes:
+  </p>
+  <ul>
+    <li>From Status → To Status</li>
+    <li>Change timestamp</li>
+    <li>User who made the change</li>
+    <li>Time in previous status</li>
+  </ul>
+
+  <h3>Usage in Analytics</h3>
+
+  <p>
+    These fields are used in:
+  </p>
+  <ul>
+    <li>Fact_TicketHistory model (Section 6-2)</li>
+    <li>SLA dashboard calculations (Section 6-3)</li>
+    <li>Workflow analysis (Section 6-4)</li>
+    <li>Team performance reporting</li>
+  </ul>
+
+</div>

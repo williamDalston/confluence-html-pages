@@ -1,0 +1,53 @@
+<div style="font-family: Arial, sans-serif; line-height: 1.5; max-width: 800px;">
+
+  <h2>Jira API Setup & Queries</h2>
+
+  <p>
+    This page provides setup instructions and example queries for connecting to the Jira 
+    REST API for ticket tracking and team workflow analytics.
+  </p>
+
+  <h3>API Setup</h3>
+
+  <h4>Authentication</h4>
+  <ul>
+    <li><strong>Method:</strong> Basic authentication with API token</li>
+    <li><strong>Token Generation:</strong> Create API token in Jira account settings</li>
+    <li><strong>Permissions:</strong> Read access to tickets and projects</li>
+  </ul>
+
+  <h4>Base URL</h4>
+  <p><code>https://[your-domain].atlassian.net/rest/api/3/</code></p>
+
+  <h3>Common Queries</h3>
+
+  <h4>Get Tickets</h4>
+  <pre style="background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto;">
+GET /search
+Query Parameters:
+  - jql: JQL query string
+  - fields: comma-separated field list
+  - maxResults: number of results (max 100)
+</pre>
+
+  <h4>Get Ticket History</h4>
+  <pre style="background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto;">
+GET /issue/{issueId}/changelog
+</pre>
+
+  <h3>JQL Examples</h3>
+
+  <ul>
+    <li><code>project = "HHS" AND status = "Open"</code></li>
+    <li><code>assignee = currentUser() AND updated >= -7d</code></li>
+    <li><code>status changed FROM "In Progress" TO "Done" DURING (startDate(), endDate())</code></li>
+  </ul>
+
+  <h3>Integration with Power BI</h3>
+
+  <p>
+    See Section 6-2 for Fact_TicketHistory model structure and Section 2-7 for 
+    connection guide details.
+  </p>
+
+</div>

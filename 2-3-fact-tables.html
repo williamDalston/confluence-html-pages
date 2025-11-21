@@ -1,0 +1,49 @@
+<div style="font-family: Arial, sans-serif; line-height: 1.5; max-width: 800px;">
+
+  <h2>Fact Tables (PBIX Mock)</h2>
+
+  <p>
+    This page documents our standard fact table structures and templates. Fact tables contain 
+    the measurable, quantitative data at the center of our star schema models.
+  </p>
+
+  <h3>Fact Table Principles</h3>
+
+  <ul>
+    <li>Each row represents a single business event or transaction</li>
+    <li>Contains foreign keys linking to dimension tables</li>
+    <li>Includes numeric measures (metrics) that can be aggregated</li>
+    <li>Should be at the finest grain (detail level) needed for analysis</li>
+  </ul>
+
+  <h3>Standard Fact Tables</h3>
+
+  <h4>Fact_TicketHistory</h4>
+  <ul>
+    <li>Records ticket status changes and transitions</li>
+    <li>Dimensions: Date, Ticket, Team, Priority, Status, Assignee</li>
+    <li>Measures: Time in Status, SLA Compliance, Ticket Count</li>
+  </ul>
+
+  <h4>Fact_PageViews</h4>
+  <ul>
+    <li>Records individual page view events</li>
+    <li>Dimensions: Date, Content, User Segment, Traffic Source</li>
+    <li>Measures: Page Views, Unique Visitors, Bounce Rate</li>
+  </ul>
+
+  <h4>Fact_SocialEngagement</h4>
+  <ul>
+    <li>Records social media engagement events</li>
+    <li>Dimensions: Date, Platform, Content Type, Campaign</li>
+    <li>Measures: Likes, Shares, Comments, Impressions</li>
+  </ul>
+
+  <h3>Template Usage</h3>
+
+  <p>
+    Use these fact table structures as templates when creating new data models. Ensure consistency 
+    in naming conventions, key structures, and measure definitions.
+  </p>
+
+</div>
